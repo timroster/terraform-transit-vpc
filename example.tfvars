@@ -1,0 +1,10 @@
+project = ""
+ibmcloud_api_key = ""
+ssh_key_name = ""
+# tags = [ "owner:timro" ]
+zt_network = ""
+# resource_group_name = ""
+# spoke_vpc_count = 2
+# region = "ca-tor"
+# vpc_subnet_range = "172.20.64.0/18"
+# zone = "ca-tor-2"

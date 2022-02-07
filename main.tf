@@ -116,7 +116,7 @@ resource ibm_is_security_group_rule zerotier_rule {
 }
 
 # add VPC network range to spoke VPC default SG
-resource ibm_is_security_group_rule zerotier_rule {
+resource ibm_is_security_group_rule vpc_subnet_range {
   count = var.spoke_vpc_count
   
   group     = module.spoke-vpc[count.index].vpc_default_sg
@@ -125,7 +125,7 @@ resource ibm_is_security_group_rule zerotier_rule {
 }
 
 # TEST - add TimRo source IP to spoke VPC default SG
-resource ibm_is_security_group_rule zerotier_rule {
+resource ibm_is_security_group_rule test_access {
   count = var.spoke_vpc_count
   
   group     = module.spoke-vpc[count.index].vpc_default_sg
