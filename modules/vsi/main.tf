@@ -3,9 +3,10 @@ data ibm_is_image image {
 }
 
 resource "ibm_is_instance" "this" {
-  name    = "${var.name}-vsi"
-  image   = data.ibm_is_image.image.id
-  profile = var.profile_name
+  name           = "${var.name}-vsi"
+  image          = data.ibm_is_image.image.id
+  profile        = var.profile_name
+  resource_group = var.resource_group_id
 
   primary_network_interface {
     name   = "eth0"
