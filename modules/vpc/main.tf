@@ -1,7 +1,7 @@
 resource "ibm_is_vpc" "this" {
   name                      = "${var.name}-vpc"
   resource_group            = var.resource_group_id
-  address_prefix_management = "manual"
+  address_prefix_management = "auto"
   tags                      = var.tags
 }
 
