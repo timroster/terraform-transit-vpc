@@ -69,5 +69,5 @@ variable "environment" {
 variable "vpc_subnet_range" {
   type        = string
   description = "The network block(s) to use for VPC subnets"
-  default     = "172.20.64.0/18"
+  default     = "10.16.64.0/18"
 }

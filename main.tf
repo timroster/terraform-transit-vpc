@@ -78,7 +78,7 @@ module "spoke-vpc" {
   count = var.spoke_vpc_count
  
   name               = "${local.basename}-spoke${format("%02s", count.index)}"
-  vpc_pgw            = false
+  vpc_pgw            = var.spoke_vpc_pgw
   tags               = var.tags
   resource_group_id  = local.resource_group_id
   vpc_subnet_address = cidrsubnet(var.vpc_subnet_range, 6, (count.index+1))
@@ -122,15 +122,6 @@ resource ibm_is_security_group_rule vpc_subnet_range {
   group     = module.spoke-vpc[count.index].vpc_default_sg
   direction = "inbound"
   remote    = var.vpc_subnet_range
-}
-
-# TEST - add TimRo source IP to spoke VPC default SG
-resource ibm_is_security_group_rule test_access {
-  count = var.spoke_vpc_count
-  
-  group     = module.spoke-vpc[count.index].vpc_default_sg
-  direction = "inbound"
-  remote    = "76.21.108.221"
 }
 
 ## Add VSI to spoke VPC
